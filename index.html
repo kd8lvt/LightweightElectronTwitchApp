@@ -1,0 +1,37 @@
+<style>
+	.video {
+		outline: none;
+		margin: 0;
+		padding: 0;
+		height: 60%;
+		width: 100%;
+		frameborder: 0;
+		scrolling: false;
+		align: middle;
+	}
+	.chat {
+		outline: none;
+		margin: 0;
+		padding: 0;
+		height: 38%;
+		width: 100%;
+		frameborder: 0;
+		scrolling: false;
+		align: middle;
+	}
+</style>
+
+<script>	
+	function init() {
+		var searchParams = new URLSearchParams(window.location.search);
+		document.getElementById('video').src='https://player.twitch.tv/?channel='+searchParams.get('channel');
+		document.getElementById('chat').src='https://www.twitch.tv/'+searchParams.get('channel')+"/chat?popout=";
+	}
+
+</script>
+
+<body onLoad="init()">
+	<iframe id="video" class="video" src="loading.html" frameborder="0"></iframe>
+
+	<iframe id="chat" class="chat" src="loading.html" frameborder="0"></iframe>
+</body>
